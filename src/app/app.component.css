@@ -1,0 +1,6 @@
+button.sidenav-toggle {
+    border-radius: 0;
+    left: 0px;
+    min-width: unset;
+    position: absolute;
+}

@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { HomeComponent } from './home/home.component';
+import * as globalVars from './global';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },

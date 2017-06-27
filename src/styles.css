@@ -2,6 +2,6 @@
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body{
-    margin: 0;
+.main-container {
+    min-height: 100vh;
 }
