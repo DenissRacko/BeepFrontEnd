@@ -7,10 +7,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { HomeComponent } from './home/home.component';
+import { BeepsComponent } from './beeps/beeps.component';
+
 import * as globalVars from './global';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'beeps', component: BeepsComponent },
   { path: '*', component: HomeComponent },
 ];
 
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavmenuComponent,
-    HomeComponent
+    HomeComponent,
+    BeepsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

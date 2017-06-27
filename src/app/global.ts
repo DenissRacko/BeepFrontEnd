@@ -1,3 +1,3 @@
 'use strict';
 
-export const apiUrl = "apiUrlHere";
+export const apiUrl = "http://localhost:49960";
