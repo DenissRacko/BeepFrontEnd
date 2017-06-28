@@ -1,0 +1,13 @@
+.nav.navbar-nav li.link-active a {
+    background: #337ab7;
+    color: white;
+}
+
+.nav.navbar-nav li {
+    display: block;
+    float: none;
+}
+
+.nav.nav.navbar-nav {
+    float: none;
+}

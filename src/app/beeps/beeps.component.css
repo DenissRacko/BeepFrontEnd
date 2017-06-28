@@ -1,0 +1,8 @@
+tr {
+    transition: .5s;
+}
+
+tr.faded {
+    opacity: 0;
+    transition: .5s;
+}

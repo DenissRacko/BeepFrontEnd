@@ -1,3 +1,33 @@
-<p>
-  beeps works!
-</p>
+<h1>{{beepTitle}}</h1>
+<h3 *ngIf="beeps">{{beepsCount}} beeps total.</h3>
+
+<button type="button" md-raised-button [routerLink]="['/createBeep']">
+  <span>Create new beep</span>
+</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Date of birth</th>
+      <th>Gender</th>
+      <th>Eyes count</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="beeps">
+    <tr *ngFor="let item of beeps"> 
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.dateOfBirth}}</td>
+      <td>{{item.gender}}</td>
+      <td>{{item.eyesCount}}</td>
+      <td>
+        <div (click)="removeRow($event, item.id)" mdTooltip="Remove beep" mdTooltipPosition="right">
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>       
+      </td>
+    </tr>
+  </tbody>
+</table>
