@@ -12,21 +12,26 @@
       <th>Name</th>
       <th>Date of birth</th>
       <th>Gender</th>
+      <th>Description</th>
       <th>Eyes count</th>
       <th></th>
     </tr>
   </thead>
   <tbody *ngIf="beeps">
     <tr *ngFor="let item of beeps"> 
-      <td>{{item.id}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.dateOfBirth}}</td>
-      <td>{{item.gender}}</td>
-      <td>{{item.eyesCount}}</td>
+      <td>{{item.Id}}</td>
+      <td>{{item.Name}}</td>
+      <td>{{item.DateOfBirth}}</td>
+      <td>{{item.Gender}}</td>
+      <td>{{item.Description}}</td>
+      <td>{{item.EyesCount}}</td>
       <td>
-        <div (click)="removeRow($event, item.id)" mdTooltip="Remove beep" mdTooltipPosition="right">
+        <span mdTooltip="Edit beep" mdTooltipPosition="right">
+          <i [routerLink]="['/editBeep', item.Id]" class="glyphicon glyphicon-pencil"></i>
+        </span> 
+        <span (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="right">
           <i class="glyphicon glyphicon-remove"></i>
-        </div>       
+        </span>       
       </td>
     </tr>
   </tbody>
