@@ -26,10 +26,10 @@
       <td>{{item.Description}}</td>
       <td>{{item.EyesCount}}</td>
       <td>
-        <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="after">
+        <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="before">
           <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
         </span> 
-        <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="after">
+        <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="before">
           <i class="material-icons">delete</i>
         </span>       
       </td>
