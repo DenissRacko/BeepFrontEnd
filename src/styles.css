@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 .main-container {
     min-height: 100vh;
+}
+
+.page-content {
+    padding-top: 2rem;
 }

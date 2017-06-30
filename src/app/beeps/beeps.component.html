@@ -1,7 +1,7 @@
 <h1>{{beepTitle}}</h1>
 <h3 *ngIf="beeps">{{beepsCount}} beeps total.</h3>
 
-<button type="button" md-raised-button [routerLink]="['/createBeep']">
+<button type="button" color="primary" md-raised-button [routerLink]="['/createBeep']">
   <span>Create new beep</span>
 </button>
 
@@ -26,11 +26,11 @@
       <td>{{item.Description}}</td>
       <td>{{item.EyesCount}}</td>
       <td>
-        <span mdTooltip="Edit beep" mdTooltipPosition="right">
-          <i [routerLink]="['/editBeep', item.Id]" class="glyphicon glyphicon-pencil"></i>
+        <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="after">
+          <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
         </span> 
-        <span (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="right">
-          <i class="glyphicon glyphicon-remove"></i>
+        <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="after">
+          <i class="material-icons">delete</i>
         </span>       
       </td>
     </tr>

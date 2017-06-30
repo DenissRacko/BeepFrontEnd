@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Beep } from '../classes/beep';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { Beep } from '../classes/beep';
 import * as globalVars from '../global';
 
 @Component({
@@ -9,27 +11,24 @@ import * as globalVars from '../global';
   templateUrl: './beep-form.component.html',
   styleUrls: ['./beep-form.component.css']
 })
+
 export class BeepFormComponent implements OnInit {
   model: Beep;
-  genders: string[] = ["Male", "Female", "Retarded"];
+  genders: string[] = ["Male", "Female", "Retarded", "Social Justice Warrior"];
   beepId: number;
   sub: any;
   private http: Http;
 
-  constructor( http:Http, private router:Router, private route: ActivatedRoute  ) { 
+  constructor(http:Http, private router:Router, private route: ActivatedRoute, private fb: FormBuilder ) { 
       this.http = http;
       this.model = new Beep();
       this.model.EyesCount = 2;    
   }
+ 
+  beepFormGroup: FormGroup;
 
-  onSubmit(form:any) {
-    this.http.post('http://localhost:49960/api/values/SaveBeeper', form)
-    .subscribe(result => {
-        this.router.navigate(['beeps']);
-    });
-  }
   ngOnInit() {
-    this.sub =this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
             this.beepId = +params["id"];
             
             if(this.beepId != null && this.beepId > 0) {
@@ -42,7 +41,14 @@ export class BeepFormComponent implements OnInit {
         });
   }
 
-   ngOnDestroy() {
+  ngOnDestroy() {
         this.sub.unsubscribe();
+  }
+  
+  onSubmit(form:any) {
+    this.http.post('http://localhost:49960/api/values/SaveBeeper', form)
+      .subscribe(result => {
+          this.router.navigate(['beeps']);
+      });
   }
 }

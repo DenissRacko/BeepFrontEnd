@@ -5,9 +5,10 @@
   </md-sidenav>
   <div class="main-container container">
       <button class="sidenav-toggle" type="button" md-button (click)="sidenav.toggle()">
-        <i class="glyphicon glyphicon-list"></i>
+        <i class="material-icons">list</i>
       </button>
-
-      <router-outlet></router-outlet>
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
   </div>
 </md-sidenav-container>

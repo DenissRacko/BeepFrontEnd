@@ -1,12 +1,15 @@
 <h1>Beep form</h1>
-<form  #beepForm="ngForm" (ngSubmit)="onSubmit(beepForm.value)" action="http://localhost:49960/api/values/SaveBeeper">
+<form #beepForm="ngForm" (ngSubmit)="onSubmit(beepForm.value)" action="http://localhost:49960/api/values/SaveBeeper">
+
   <input type="hidden" [(ngModel)]="model.Id" name="Id">
+
   <div class="form-group">
     <md-input-container>
       <input mdInput placeholder="Beep name" 
       type="text" 
       required
       [(ngModel)]="model.Name" name="Name" #name="ngModel">
+      <md-error>Name is required</md-error>
     </md-input-container>
     <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
       Name is required
@@ -30,28 +33,29 @@
     </md-input-container>
     <button [mdDatepickerToggle]="dateOfBirthPicker"></button>
     <md-datepicker #dateOfBirthPicker></md-datepicker>
-    
   </div>
 
   <div class="form-group">
     <md-input-container>
       <input mdInput placeholder="Eyes count" 
-      min = "0"
+      minValue = 0
+      maxValue = 5
       type="number" 
       [(ngModel)]="model.EyesCount" name="EyesCount" #eyes="ngModel">
+      <md-error [ngClass]="{'hidden':!eyes.hasError('max-exceed')}">Eyes count is too high. Try less.</md-error>
+      <md-error [ngClass]="{'hidden':!eyes.hasError('min-exceed')}">Eyes count is too low. Try more.</md-error>
     </md-input-container>
-    <div [hidden]="eyes.valid || eyes.pristine " class="alert alert-danger">
-      Name is required
-    </div>
   </div>
 
   <div class="form-group">
-    <textarea class="form-control"
-              [(ngModel)]="model.Description" 
-              name="Description" 
-              placeholder="Description"></textarea>
+    <md-input-container>
+      <textarea mdInput
+                [(ngModel)]="model.Description" 
+                name="Description" 
+                placeholder="Description"></textarea>
+    </md-input-container>
   </div>
-<button type="submit" md-raised-button>
+<button type="submit" [disabled]="!beepForm.form.valid" md-raised-button color="primary">
   <span>Submit</span>
 </button>
 <a class="btn btn-link" [routerLink]="['/beeps']">To beep list</a>
