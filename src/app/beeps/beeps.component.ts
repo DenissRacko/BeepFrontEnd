@@ -6,7 +6,7 @@ import { Beep, BeepViewModel } from '../classes/beep'
 @Component({
   selector: 'app-beeps',
   templateUrl: './beeps.component.html',
-  styleUrls: ['./beeps.component.css']
+  styleUrls: ['./beeps.component.css', './beeps.component.scss']
 })
 
 export class BeepsComponent implements OnInit {

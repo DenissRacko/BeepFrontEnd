@@ -1,46 +1,48 @@
-<h1>{{beepTitle}}</h1>
-<h3 *ngIf="beeps">{{beepsCount}} beeps total.</h3>
+<div class="content-container">
+  <h1>{{beepTitle}}</h1>
+  <h3 *ngIf="beeps">{{beepsCount}} beeps total.</h3>
 
-<button type="button" color="primary" md-raised-button [routerLink]="['/createBeep']">
-  <span>Create new beep</span>
-</button>
+  <button type="button" color="primary" md-raised-button [routerLink]="['/createBeep']">
+    <span>Create new beep</span>
+  </button>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Date of birth</th>
-      <th>Gender</th>
-      <th>Description</th>
-      <th>Eyes count</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody *ngIf="beeps">
-    <ng-container *ngFor="let item of beeps">
-      <tr> 
-        <td>{{item.Id}}</td>
-        <td>{{item.Name}}</td>
-        <td>{{item.DateOfBirth}}</td>
-        <td>{{item.Gender}}</td>
-        <td>{{item.Description}}</td>
-        <td>{{item.EyesCount}}</td>
-        <td>
-          <span class="action-button" (click)="expandRow(item)" mdTooltip="Expand beep" mdTooltipPosition="before">
-            <i class="material-icons">subject</i>
-          </span> 
-          <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="before">
-            <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
-          </span> 
-          <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="before">
-            <i class="material-icons">delete</i>
-          </span>       
-        </td>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Gender</th>
+        <th>Description</th>
+        <th>Eyes count</th>
+        <th></th>
       </tr>
-      <tr *ngIf="item.Expanded">
-        <app-beep-inline [model]="item"></app-beep-inline>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
+    </thead>
+    <tbody *ngIf="beeps">
+      <ng-container *ngFor="let item of beeps">
+        <tr> 
+          <td>{{item.Id}}</td>
+          <td>{{item.Name}}</td>
+          <td>{{item.DateOfBirth}}</td>
+          <td>{{item.Gender}}</td>
+          <td>{{item.Description}}</td>
+          <td>{{item.EyesCount}}</td>
+          <td>
+            <span class="action-button" (click)="expandRow(item)" mdTooltip="Expand beep" mdTooltipPosition="before">
+              <i class="material-icons">subject</i>
+            </span> 
+            <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="before">
+              <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
+            </span> 
+            <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="before">
+              <i class="material-icons">delete</i>
+            </span>       
+          </td>
+        </tr>
+        <tr *ngIf="item.Expanded">
+          <app-beep-inline [model]="item"></app-beep-inline>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
