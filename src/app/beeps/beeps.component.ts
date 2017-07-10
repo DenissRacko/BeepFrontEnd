@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import * as globalVars from '../global';
-import { Beep } from '../classes/beep'
+import { Beep, BeepViewModel } from '../classes/beep'
 
 @Component({
   selector: 'app-beeps',
@@ -12,13 +12,13 @@ import { Beep } from '../classes/beep'
 export class BeepsComponent implements OnInit {
   beepTitle: string;
   beepsCount: number;
-  beeps: Array<Beep>;
+  beeps: Array<BeepViewModel>;
   private http: Http;
 
   constructor(http: Http) { 
     this.http = http;
     http.get(globalVars.apiUrl + "/api/values/BeepersList")
-    .map(result => <Array<Beep>>result.json())
+    .map(result => <Array<BeepViewModel>>result.json())
     .subscribe(result => {
             this.beeps = result;
             this.beepsCount = result.length;
@@ -37,8 +37,15 @@ export class BeepsComponent implements OnInit {
      setTimeout(() => {
         row.classList.add("hidden");
      }, 500);
+  }
 
-
+  expandRow(beep: BeepViewModel) {
+    if(beep.Expanded) {
+      beep.Expanded = false;
+    }
+    else {
+      beep.Expanded = true;
+    }    
   }
 
   ngOnInit() {

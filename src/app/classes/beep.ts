@@ -6,3 +6,7 @@ export class Beep {
   EyesCount: number;
   Description: string;
 }
+
+export class BeepViewModel extends Beep {
+  Expanded: boolean;
+}

@@ -16,6 +16,7 @@ import { minValue } from './classes/min-value.validator';
 
 import * as globalVars from './global';
 import { BeepFormComponent } from './beep-form/beep-form.component';
+import { BeepInlineComponent } from './beep-inline/beep-inline.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     BeepFormComponent,
     maxValue,
     minValue,
+    BeepInlineComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

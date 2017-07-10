@@ -18,21 +18,29 @@
     </tr>
   </thead>
   <tbody *ngIf="beeps">
-    <tr *ngFor="let item of beeps"> 
-      <td>{{item.Id}}</td>
-      <td>{{item.Name}}</td>
-      <td>{{item.DateOfBirth}}</td>
-      <td>{{item.Gender}}</td>
-      <td>{{item.Description}}</td>
-      <td>{{item.EyesCount}}</td>
-      <td>
-        <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="before">
-          <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
-        </span> 
-        <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="before">
-          <i class="material-icons">delete</i>
-        </span>       
-      </td>
-    </tr>
+    <ng-container *ngFor="let item of beeps">
+      <tr> 
+        <td>{{item.Id}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.DateOfBirth}}</td>
+        <td>{{item.Gender}}</td>
+        <td>{{item.Description}}</td>
+        <td>{{item.EyesCount}}</td>
+        <td>
+          <span class="action-button" (click)="expandRow(item)" mdTooltip="Expand beep" mdTooltipPosition="before">
+            <i class="material-icons">subject</i>
+          </span> 
+          <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="before">
+            <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
+          </span> 
+          <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="before">
+            <i class="material-icons">delete</i>
+          </span>       
+        </td>
+      </tr>
+      <tr *ngIf="item.Expanded">
+        <app-beep-inline [model]="item"></app-beep-inline>
+      </tr>
+    </ng-container>
   </tbody>
 </table>
