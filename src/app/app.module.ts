@@ -22,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'beeps', component: BeepsComponent },
   { path: 'createBeep', component: BeepFormComponent },
   { path: 'editBeep/:id', component: BeepFormComponent },
+  { path: '', component: HomeComponent },
   { path: '*', component: HomeComponent },
 ];
 

@@ -9,7 +9,7 @@ import * as globalVars from '../global';
 @Component({
   selector: 'app-beep-form',
   templateUrl: './beep-form.component.html',
-  styleUrls: ['./beep-form.component.css']
+  styleUrls: ['./beep-form.component.css', './beep-form.component.scss']
 })
 
 export class BeepFormComponent implements OnInit {
