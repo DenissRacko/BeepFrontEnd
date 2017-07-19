@@ -6,43 +6,35 @@
     <span>Create new beep</span>
   </button>
 
-  <table class="table table-hover table-responsive">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Date of birth</th>
-        <th>Gender</th>
-        <th>Description</th>
-        <th>Eyes count</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody *ngIf="beeps">
-      <ng-container *ngFor="let item of beeps">
-        <tr> 
-          <td>{{item.Id}}</td>
-          <td>{{item.Name}}</td>
-          <td>{{item.DateOfBirth}}</td>
-          <td>{{item.Gender}}</td>
-          <td>{{item.Description}}</td>
-          <td>{{item.EyesCount}}</td>
-          <td>
-            <span class="action-button" (click)="expandRow(item)" mdTooltip="Expand beep" mdTooltipPosition="before">
+  <div class="cards" *ngIf="beeps">
+    <md-card *ngFor="let item of beeps">
+      <md-card-header>
+        <md-card-title>{{item.Name}}</md-card-title>
+        <md-card-subtitle>{{item.Gender}}</md-card-subtitle>
+      </md-card-header>
+      <md-card-content>
+      <p>
+        {{item.Description}}
+      </p>
+      <p>
+        Date of creation: {{item.DateOfBirth}}
+        <br />
+        Eyes count: {{item.EyesCount}}
+      </p>
+      </md-card-content>
+       <md-card-actions>
+         <div class="card-actions">
+            <!--<span class="action-button" (click)="expandRow(item)" mdTooltip="Expand beep" mdTooltipPosition="below">
               <i class="material-icons">subject</i>
-            </span> 
-            <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="before">
+            </span> -->
+            <span class="action-button" mdTooltip="Edit beep" mdTooltipPosition="below">
               <i [routerLink]="['/editBeep', item.Id]" class="material-icons">create</i>
             </span> 
-            <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="before">
+            <span class="action-button" (click)="removeRow($event, item.Id)" mdTooltip="Remove beep" mdTooltipPosition="below">
               <i class="material-icons">delete</i>
-            </span>       
-          </td>
-        </tr>
-        <tr *ngIf="item.Expanded">
-          <app-beep-inline [model]="item"></app-beep-inline>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
+            </span>  
+          </div>    
+      </md-card-actions>     
+    </md-card>
+  </div>
 </div>

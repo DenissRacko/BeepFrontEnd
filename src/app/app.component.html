@@ -1,14 +1,15 @@
-<!--The whole content below can be removed with the new code.-->
 <md-sidenav-container>
   <md-sidenav mode="side" #sidenav class="sidenav">
     <app-navmenu></app-navmenu>
   </md-sidenav>
-  <div class="main-container container">
-      <button class="sidenav-toggle" type="button" md-button (click)="sidenav.toggle()">
-        <i class="material-icons">list</i>
-      </button>
-      <div class="page-content">
-        <router-outlet></router-outlet>
-      </div>
+  <div class="content-wrapper">
+    <div class="main-container container">
+        <button class="sidenav-toggle" type="button" md-button (click)="sidenav.toggle()">
+          <i class="material-icons">list</i>
+        </button>
+        <div class="page-content">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
   </div>
 </md-sidenav-container>

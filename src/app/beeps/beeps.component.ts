@@ -32,10 +32,10 @@ export class BeepsComponent implements OnInit {
          this.beepsCount--;
        }      
      });
-     var row = event.target.parentNode.parentNode.parentNode;
-     row.classList.add("faded");
+     var card = event.target.parentNode.parentNode.parentNode.parentNode;
+     card.classList.add("faded");
      setTimeout(() => {
-        row.classList.add("hidden");
+        card.classList.add("hidden");
      }, 500);
   }
 

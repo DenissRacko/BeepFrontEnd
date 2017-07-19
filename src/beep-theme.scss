@@ -1,8 +1,8 @@
 @import '~@angular/material/theming';
 @include mat-core();
 //Theme declaration
-$beep-app-primary: mat-palette($mat-light-blue, 600);
-$beep-app-accent: mat-palette($mat-deep-orange, 200);
+$beep-app-primary: mat-palette($mat-teal, 600);
+$beep-app-accent: mat-palette($mat-blue-grey, 200);
 
 $beep-app-warn: mat-palette($mat-red, 700);
 
@@ -25,5 +25,9 @@ $beep-app-theme: mat-light-theme($beep-app-primary, $beep-app-accent, $beep-app-
 
 .hidden {
     display: none !important;
+}
+
+/deep/.mat-sidenav-container {
+    background: linear-gradient(to bottom, #c5deea 0%,#8abbd7 31%,#066dab 100%);
 }
 //Custom styles

@@ -1,7 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { MdButtonModule, MdCheckboxModule, MdInputModule, MdSelectModule, MdSidenavModule, MdDatepickerModule, MdNativeDateModule, MdTooltipModule } from '@angular/material';
+import { MdButtonModule, 
+         MdCheckboxModule, 
+         MdInputModule, 
+         MdSelectModule, 
+         MdSidenavModule, 
+         MdDatepickerModule, 
+         MdNativeDateModule, 
+         MdTooltipModule,
+         MdCardModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -45,7 +53,7 @@ const appRoutes: Routes = [
     FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,
     CarouselModule,
-    MdButtonModule, MdCheckboxModule, MdInputModule, MdSelectModule, MdSidenavModule, MdDatepickerModule, MdNativeDateModule, MdTooltipModule
+    MdButtonModule, MdCheckboxModule, MdInputModule, MdSelectModule, MdSidenavModule, MdDatepickerModule, MdNativeDateModule, MdTooltipModule, MdCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,19 @@
 h1 {
     margin-top: 0;
 }
+
+.cards {
+    padding-top: 2rem;
+}
+
+md-card {
+    margin-bottom: 2rem;
+
+    /deep/.mat-card-header-text {
+        margin: 0;
+    }
+
+    .card-actions {
+        margin-left: 1.5rem;
+    }
+}

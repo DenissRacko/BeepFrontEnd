@@ -1,8 +1,8 @@
-tr {
+md-card {
     transition: .5s;
 }
 
-tr.faded {
+md-card.faded {
     opacity: 0;
     transition: .5s;
 }
